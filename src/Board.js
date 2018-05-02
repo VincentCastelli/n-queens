@@ -79,12 +79,40 @@
     //
     // test if a specific row on this board contains a conflict
     hasRowConflictAt: function(rowIndex) {
-      return false; // fixme
+      
+      var count = this.attributes[rowIndex].reduce(function (trueCount, square) {
+        if (square) {
+          return trueCount + 1;
+        } else {
+          return trueCount;  
+        }
+      }, 0);
+
+      return count > 1;
     },
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
-      return false; // fixme
+      // map on the attributes 
+      this.attributes.map(function(row) {
+        
+        var count = this.attributes[rowIndex].reduce(function (trueCount, square) {
+        if (square) {
+          return trueCount + 1;
+        } else {
+          return trueCount;  
+        }
+      }, 0);
+
+      return count > 1;
+        
+      }
+      
+      
+        // reduce to evaluate row 
+          // if greater than 1, false
+        //return 
+        
     },
 
 

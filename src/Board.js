@@ -80,7 +80,7 @@
     // test if a specific row on this board contains a conflict
     hasRowConflictAt: function(rowIndex) {
       
-      var count = this.attributes[rowIndex].reduce(function (trueCount, square) {
+      var count = _.reduce(this.get(rowIndex), function (trueCount, square) {
         if (square) {
           return trueCount + 1;
         } else {
@@ -93,26 +93,14 @@
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
-      // map on the attributes 
-      this.attributes.map(function(row) {
-        
-        var count = this.attributes[rowIndex].reduce(function (trueCount, square) {
-        if (square) {
-          return trueCount + 1;
-        } else {
-          return trueCount;  
+      
+      for (var i = 0; i < this.rows().length; i++) {
+        if (this.hasRowConflictAt(i)) {
+          return true;
         }
-      }, 0);
-
-      return count > 1;
-        
       }
       
-      
-        // reduce to evaluate row 
-          // if greater than 1, false
-        //return 
-        
+      return false;   
     },
 
 

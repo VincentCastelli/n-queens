@@ -160,7 +160,18 @@
 
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
-      return false; // fixme
+      
+      for (var i = 0; i < this.rows().length; i++) {
+        if (hasMajorDiagonalConflictAt(i)) {
+          return true;
+        }
+      }
+      
+      for (var i = 1; i < this.rows().length; i++) {
+        if (hasMajorDiagonalConflictAt(i)[0]) {
+          
+        }
+      }
     },
 
 
